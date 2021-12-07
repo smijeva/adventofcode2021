@@ -18,7 +18,7 @@ def part2():
 
     max_position = max(crabs)
     # Highly inefficient, the most inner formula was supposed to be something like n*n/2, but I was lazy :P
-    position_costs = [(i, sum([sum([x for x in range(1, abs(c-i)+1)]) for c in crabs])) for i in range(max_position + 1)]
+    position_costs = [(pos, sum([sum([i for i in range(1, abs(c-pos)+1)]) for c in crabs])) for pos in range(max_position + 1)]
     sorted_costs = sorted(position_costs, key=lambda x: x[1])
     return sorted_costs[0]
 
